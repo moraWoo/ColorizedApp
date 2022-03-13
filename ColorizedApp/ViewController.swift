@@ -23,13 +23,20 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         coloredView.layer.cornerRadius = 10
         
-        updateLabels()
+        updateLabels(for: redCount, greenCount, blueCount)
         colorizeView()
     }
 
     @IBAction func rgbSlider(_ sender: UISlider) {
         colorizeView()
-        updateLabels()
+        switch sender {
+        case redSlider:
+            redCount.text = string(from: redSlider)
+        case greenSlider:
+            greenCount.text = string(from: greenSlider)
+        default:
+            blueCount.text = string(from: blueSlider)
+        }
     }
     
     private func colorizeView() {
@@ -41,10 +48,17 @@ class ViewController: UIViewController {
         )
     }
     
-    private func updateLabels() {
-        redCount.text = string(from: redSlider)
-        greenCount.text = string(from: greenSlider)
-        blueCount.text = string(from: blueSlider)
+    private func updateLabels(for labels: UILabel...) {
+        labels.forEach { label in
+            switch label {
+            case redCount:
+                redCount.text = string(from: redSlider)
+            case greenCount:
+                greenCount.text = string(from: greenSlider)
+            default:
+                blueCount.text = string(from: blueSlider)
+            }
+        }
     }
     
     private func string(from slider: UISlider) -> String {

@@ -81,8 +81,8 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="19" translatesAutoresizingMaskIntoConstraints="NO" id="v9E-0V-TRo">
                                         <rect key="frame" x="136" y="0.0" width="238" height="128"/>
                                         <subviews>
-                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.29999999999999999" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="tT1-Jn-ykk">
-                                                <rect key="frame" x="-2" y="-1" width="242" height="31"/>
+                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.29999999999999999" minValue="0.0" maxValue="2.2999999999999998" translatesAutoresizingMaskIntoConstraints="NO" id="tT1-Jn-ykk">
+                                                <rect key="frame" x="-2" y="0.0" width="242" height="31"/>
                                                 <color key="tintColor" red="0.89000000000000001" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <connections>
                                                     <action selector="rgbSlider:" destination="BYZ-38-t0r" eventType="valueChanged" id="fQB-Li-1uv"/>
