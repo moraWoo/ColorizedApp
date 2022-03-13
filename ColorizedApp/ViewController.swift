@@ -30,11 +30,7 @@ class ViewController: UIViewController {
         redCount.text = String(format:"%.2f", redSlider.value)
         greenCount.text = String(format:"%.2f", greenSlider.value)
         blueCount.text = String(format:"%.2f", blueSlider.value)
-        
-        red = CGFloat(redSlider.value)
-        green = CGFloat(greenSlider.value)
-        blue = CGFloat(blueSlider.value)
-               
+         
         colorizeView()
     }
 
@@ -55,7 +51,12 @@ class ViewController: UIViewController {
     }
     
     private func colorizeView() {
-        coloredView.backgroundColor = UIColor(red: red, green: green, blue: blue, alpha: 1)
+        coloredView.backgroundColor = UIColor(
+            red: CGFloat(redSlider.value),
+            green: CGFloat(greenSlider.value),
+            blue: CGFloat(blueSlider.value),
+            alpha: 1
+        )
     }
     
 }
