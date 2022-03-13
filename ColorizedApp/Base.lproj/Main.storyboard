@@ -82,24 +82,24 @@
                                         <rect key="frame" x="136" y="0.0" width="238" height="128"/>
                                         <subviews>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.29999999999999999" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="tT1-Jn-ykk">
-                                                <rect key="frame" x="-2" y="0.0" width="242" height="31"/>
+                                                <rect key="frame" x="-2" y="-1" width="242" height="31"/>
                                                 <color key="tintColor" red="0.89000000000000001" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <connections>
-                                                    <action selector="moveRedSlider" destination="BYZ-38-t0r" eventType="valueChanged" id="wh0-yf-i8c"/>
+                                                    <action selector="rgbSlider:" destination="BYZ-38-t0r" eventType="valueChanged" id="fQB-Li-1uv"/>
                                                 </connections>
                                             </slider>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="x1f-sn-n3e">
                                                 <rect key="frame" x="-2" y="49" width="242" height="31"/>
                                                 <color key="tintColor" red="0.06543705507" green="0.89000000000000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <connections>
-                                                    <action selector="moveGreenSlider" destination="BYZ-38-t0r" eventType="valueChanged" id="R1q-Cj-z7n"/>
+                                                    <action selector="rgbSlider:" destination="BYZ-38-t0r" eventType="valueChanged" id="Jwj-X6-thL"/>
                                                 </connections>
                                             </slider>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.69999999999999996" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Dtl-v4-87p">
                                                 <rect key="frame" x="-2" y="98" width="242" height="31"/>
                                                 <color key="tintColor" red="0.09398746794" green="0.12651159619999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <connections>
-                                                    <action selector="moveBlueSlider" destination="BYZ-38-t0r" eventType="valueChanged" id="hnz-a7-JOC"/>
+                                                    <action selector="rgbSlider:" destination="BYZ-38-t0r" eventType="valueChanged" id="H8O-yG-Uap"/>
                                                 </connections>
                                             </slider>
                                         </subviews>

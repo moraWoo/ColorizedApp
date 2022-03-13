@@ -19,35 +19,17 @@ class ViewController: UIViewController {
     @IBOutlet var greenSlider: UISlider!
     @IBOutlet var blueSlider: UISlider!
 
-    private var red: CGFloat = 0
-    private var green: CGFloat = 0
-    private var blue: CGFloat = 0
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         coloredView.layer.cornerRadius = 10
         
-        redCount.text = String(format:"%.2f", redSlider.value)
-        greenCount.text = String(format:"%.2f", greenSlider.value)
-        blueCount.text = String(format:"%.2f", blueSlider.value)
-         
+        updateLabels()
         colorizeView()
     }
 
-    @IBAction func moveRedSlider() {
-        redCount.text = String(format:"%.2f", redSlider.value)
-        red = CGFloat(redSlider.value)
+    @IBAction func rgbSlider(_ sender: UISlider) {
         colorizeView()
-    }
-    @IBAction func moveGreenSlider() {
-        greenCount.text = String(format:"%.2f", greenSlider.value)
-        green = CGFloat(greenSlider.value)
-        colorizeView()
-    }
-    @IBAction func moveBlueSlider() {
-        blueCount.text = String(format:"%.2f", blueSlider.value)
-        blue = CGFloat(blueSlider.value)
-        colorizeView()
+        updateLabels()
     }
     
     private func colorizeView() {
@@ -59,5 +41,14 @@ class ViewController: UIViewController {
         )
     }
     
+    private func updateLabels() {
+        redCount.text = string(from: redSlider)
+        greenCount.text = string(from: greenSlider)
+        blueCount.text = string(from: blueSlider)
+    }
+    
+    private func string(from slider: UISlider) -> String {
+        String(format:"%.2f", slider.value)
+    }
 }
 
