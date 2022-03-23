@@ -30,11 +30,17 @@ class ViewController: UIViewController {
         coloredView.layer.cornerRadius = 10
         self.navigationItem.setHidesBackButton(true, animated: false)
         
+        coloredView.backgroundColor = backgroundColorOfView
+        //return RGB float value of components
+        var redColor: CGFloat = 0, greenColor: CGFloat = 0, blueColor: CGFloat = 0, alpha: CGFloat = 0
+        backgroundColorOfView.getRed(&redColor, green: &greenColor, blue: &blueColor, alpha: &alpha)
+//        print("red: \(redColor), green: \(greenColor), blue: \(blueColor)")
+        
+        redSlider.value = Float(redColor)
+        greenSlider.value = Float(greenColor)
+        blueSlider.value = Float(blueColor)
         
         updateLabels(for: redCount, greenCount, blueCount)
-        colorizeView()
-        coloredView.backgroundColor = backgroundColorOfView
-
     }
 
     @IBAction func rgbSlider(_ sender: UISlider) {
@@ -86,4 +92,5 @@ class ViewController: UIViewController {
         
     }
 }
+
 
