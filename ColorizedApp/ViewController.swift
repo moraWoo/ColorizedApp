@@ -18,13 +18,23 @@ class ViewController: UIViewController {
     @IBOutlet var redSlider: UISlider!
     @IBOutlet var greenSlider: UISlider!
     @IBOutlet var blueSlider: UISlider!
-
+    
+    @IBOutlet var redTextField: UITextField!
+    @IBOutlet var blueTextField: UITextField!
+    @IBOutlet var greenTextField: UITextField!
+    
+    var backgroundColorOfView: UIColor!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         coloredView.layer.cornerRadius = 10
+        self.navigationItem.setHidesBackButton(true, animated: false)
+        
         
         updateLabels(for: redCount, greenCount, blueCount)
         colorizeView()
+        coloredView.backgroundColor = backgroundColorOfView
+
     }
 
     @IBAction func rgbSlider(_ sender: UISlider) {
@@ -32,11 +42,18 @@ class ViewController: UIViewController {
         switch sender {
         case redSlider:
             redCount.text = string(from: redSlider)
+            redTextField.text = string(from: redSlider)
         case greenSlider:
             greenCount.text = string(from: greenSlider)
+            greenTextField.text = string(from: greenSlider)
         default:
             blueCount.text = string(from: blueSlider)
+            blueTextField.text = string(from: blueSlider)
         }
+    }
+    
+    @IBAction func doneButtonTapped() {
+        
     }
     
     private func colorizeView() {
@@ -53,16 +70,20 @@ class ViewController: UIViewController {
             switch label {
             case redCount:
                 redCount.text = string(from: redSlider)
+                redTextField.text = string(from: redSlider)
             case greenCount:
                 greenCount.text = string(from: greenSlider)
+                greenTextField.text = string(from: greenSlider)
             default:
                 blueCount.text = string(from: blueSlider)
+                blueTextField.text = string(from: blueSlider)
             }
         }
     }
     
     private func string(from slider: UISlider) -> String {
         String(format:"%.2f", slider.value)
+        
     }
 }
 
