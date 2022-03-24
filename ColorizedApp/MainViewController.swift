@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol SettingsViewControllerDelegate {
+    func setNewColor(redVC: Float, greenVC: Float, blueVC: Float)
+}
+
 class MainViewController: UIViewController {
 
     private var backgroundColorOfView: UIColor!
@@ -21,6 +25,7 @@ class MainViewController: UIViewController {
 
         bColor = view.backgroundColor
         settingsVC.backgroundColorOfView = bColor
+        settingsVC.delegate = self
         }
     
     @IBAction func settingsButtonTapped(_ sender: Any) {
@@ -28,4 +33,16 @@ class MainViewController: UIViewController {
         
     }
     
+}
+
+//MARK: - SettingsViewControllerDelegate
+extension MainViewController: SettingsViewControllerDelegate {
+    func setNewColor(redVC: Float, greenVC: Float, blueVC: Float) {
+        view.backgroundColor = UIColor(
+            red: CGFloat(redVC),
+            green: CGFloat(greenVC),
+            blue: CGFloat(blueVC),
+            alpha: 1
+        )
+    }
 }
