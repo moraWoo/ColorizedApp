@@ -28,6 +28,11 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        redTextField.delegate = self
+        greenTextField.delegate = self
+        blueTextField.delegate = self
+        
         coloredView.layer.cornerRadius = 10
         self.navigationItem.setHidesBackButton(true, animated: false)
         
@@ -42,7 +47,8 @@ class ViewController: UIViewController {
         
         updateLabels(for: redCount, greenCount, blueCount)
         self.addDoneButton()
-}
+
+    }
 
     @IBAction func rgbSlider(_ sender: UISlider) {
         colorizeView()
@@ -92,23 +98,6 @@ class ViewController: UIViewController {
     private func string(from slider: UISlider) -> String {
         String(format:"%.2f", slider.value)
     }
-    
-//    private func intTextField(from textField: UITextField) -> Float {
-//        if let textField = textField.text { return 0.0 }
-//    }
-    
-    private func updateSlidersAndLabels(for sliders: UISlider...) {
-        sliders.forEach { slider in
-            switch slider {
-            case redSlider:
-                redSlider.value = 0.9
-            case greenSlider:
-                greenSlider.value = 0.5
-            default:
-                blueSlider.value = 0.4
-            }
-        }
-    }
 }
 
 extension ViewController {
@@ -127,12 +116,29 @@ extension ViewController {
     
     @objc func tapDone() {
         self.view.endEditing(true)
-        updateSlidersAndLabels(for: redSlider, greenSlider,blueSlider)
+
         delegate.setNewColor(redVC: redSlider.value, greenVC: greenSlider.value, blueVC: blueSlider.value)
         view.endEditing(true)
-        
-//        intTextField(from: redTextField)
-        
+       
         dismiss(animated: true)
+    }
+}
+
+//MARK: - UITextFieldDelegate
+extension ViewController: UITextFieldDelegate {
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        guard let newValue = textField.text else { return }
+        guard let numberValue = Float(newValue) else { return }
+        
+        if textField == redTextField {
+            redSlider.value = numberValue
+            redCount.text = String(format:"%.2f", numberValue)
+        } else if textField == greenTextField {
+            greenSlider.value = numberValue
+            greenCount.text = String(format:"%.2f", numberValue)
+        } else {
+            blueSlider.value = numberValue
+            blueCount.text = String(format:"%.2f", numberValue)
+        }
     }
 }
